@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Noor Fatima ❤️</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  text-align:center;
+  background: linear-gradient(135deg,#ff3c6f,#6a00ff);
+  color:white;
+}
+
+.container {
+  padding:20px;
+}
+
+h1 {
+  font-size:42px;
+  margin-top:20px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow:0 0 10px white; }
+  to { text-shadow:0 0 25px gold; }
+}
+
+/* slideshow */
+.slideshow {
+  width:320px;
+  height:400px;
+  margin:20px auto;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+.slideshow img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* countdown */
+#countdown {
+  font-size:26px;
+  margin:15px 0;
+  background:rgba(0,0,0,0.3);
+  padding:10px;
+  border-radius:12px;
+}
+
+/* button */
+button {
+  padding:14px 22px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  background:gold;
+  cursor:pointer;
+}
+
+/* hearts */
+.heart {
+  position:fixed;
+  bottom:-20px;
+  font-size:24px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-110vh);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Happy Birthday Noor Fatima 💖</h1>
+
+<div id="countdown"></div>
+
+<div class="slideshow">
+  <img id="slide" src="photo1.jpg">
+</div>
+
+<p>
+You are my happiness, my heart, my forever.  
+May your birthday be as beautiful as your smile.  
+I’m lucky to have you in my life ❤️
+</p>
+
+<button onclick="surprise()">Click For Surprise 🎁</button>
+
+</div>
+
+<script>
+/* -------- slideshow -------- */
+let images = [
+  "photo1.jpg",
+  "photo2.jpg",
+  "photo3.jpg",
+  "photo4.jpg"
+];
+
+let i = 0;
+setInterval(() => {
+  i = (i + 1) % images.length;
+  document.getElementById("slide").src = images[i];
+}, 2500);
+
+
+/* -------- countdown -------- */
+/* SET BIRTHDAY DATE HERE */
+let birthday = new Date("Feb 20, 2026 00:00:00").getTime();
+
+setInterval(() => {
+  let now = new Date().getTime();
+  let diff = birthday - now;
+
+  if (diff < 0) {
+    document.getElementById("countdown").innerHTML =
+      "🎉 It's Her Birthday Today!";
+    return;
+  }
+
+  let d = Math.floor(diff/(1000*60*60*24));
+  let h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  let m = Math.floor((diff%(1000*60*60))/(1000*60));
+  let s = Math.floor((diff%(1000*60))/1000);
+
+  document.getElementById("countdown").innerHTML =
+    `Countdown: ${d}d ${h}h ${m}m ${s}s`;
+}, 1000);
+
+
+/* -------- surprise -------- */
+function surprise(){
+  alert("I Love You Noor Fatima ❤️ Forever & Always");
+}
+
+
+/* -------- floating hearts -------- */
+for(let j=0;j<30;j++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(4+Math.random()*4)+"s";
+  document.body.appendChild(h);
+}
+</script>
+
+</body>
+</html>
